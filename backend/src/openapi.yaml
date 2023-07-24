@@ -1,0 +1,101 @@
+openapi: 3.0.0
+info:
+  title: Chat
+  summary: Real time chat application.
+  description: Real time chat application using socket.io.
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:7000/api/v1
+    description: Local Server
+
+security:
+  - bearerAuth: []
+
+tags:
+  - name: Authentication
+    description: Authentication endpoints.
+  - name: Channel
+
+paths:
+  /users/sign-in:
+    description: Sign In
+    post:
+      tags:
+        - Authentication
+      deprecated: false
+      requestBody:
+        description: Request
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SignInData"
+      responses:
+        default:
+          description: Response
+          content:
+            schema:
+              type: object
+
+  /users/sign-up:
+    description: Sign Up
+    post:
+      tags:
+        - Authentication
+      deprecated: false
+      requestBody:
+        description: Request
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SignUpData"
+      responses:
+        default:
+          description: Response
+          content:
+            schema:
+              type: object
+
+  /channels:
+    description: Get channels list
+    get:
+      deprecated: false
+      tags:
+        - Channel
+      responses:
+        default:
+          description: Response
+          content:
+            schema:
+              type: object
+
+components:
+  securitySchemes:
+    bearerAuth: # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT # optional, arbitrary value for documentation purposes
+
+  schemas:
+    SignInData:
+      type: object
+      properties:
+        email:
+          type: string
+          example: demo@chat.com
+        password:
+          type: string
+          example: password
+
+    SignUpData:
+      type: object
+      properties:
+        name:
+          type: string
+          example: demo
+        email:
+          type: string
+          example: demo@chat.com
+        password:
+          type: string
+          example: password

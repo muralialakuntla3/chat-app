@@ -1,0 +1,34 @@
+services:
+  realchatdb:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data:rw
+
+  backend:
+    build:
+      context: backend/
+    ports:
+      - "8080:8080"
+    env_file:
+      - backend/.env
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@realchatdb:5432/postgres
+    depends_on:
+      - realchatdb
+
+  frontend:
+    build:
+      context: frontend/
+    ports:
+      - "80:80"
+    env_file:
+      - frontend/.env
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:

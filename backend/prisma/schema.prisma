@@ -1,0 +1,41 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  username     String    @id @db.VarChar(100)
+  email        String    @unique
+  avatar       String?
+  name         String
+  passwordHash String
+  channels     Channel[]
+  sent         Message[] @relation("to")
+  received     Message[] @relation("from")
+}
+
+model Channel {
+  name    String    @id
+  users   User[]
+  Message Message[]
+}
+
+// TODO: Add constrain (CHECK ?) on the columns to make sure channelName | toUsername is not null.
+model Message {
+  id           String   @id @default(uuid())
+  text         String
+  to           User?    @relation("to", fields: [toUsername], references: [username])
+  from         User     @relation("from", fields: [fromUsername], references: [username])
+  toUsername   String?  @db.VarChar(100)
+  fromUsername String   @db.VarChar(100)
+  time         DateTime @default(now())
+  toChannel    Channel? @relation(fields: [channelName], references: [name])
+  channelName  String?
+}
