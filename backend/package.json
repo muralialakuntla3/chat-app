@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "@faker-js/faker": "^7.6.0",
     "@prisma/client": "^4.9.0",
     "@sendgrid/mail": "^7.7.0",
     "bcryptjs": "^2.4.3",
@@ -17,17 +16,15 @@
     "pino-pretty": "^9.1.1",
     "socket.io": "^4.5.4",
     "swagger-ui-express": "^4.6.0",
-    "ts-node": "^10.9.1",
     "yamljs": "^0.3.0",
     "zod": "^3.19.1"
   },
   "scripts": {
-    "start": "npm run db-migrations && npm run seed && node build/src/index.js",
+    "start": "npm run db-migrations && node src/index.js",
     "db-migrations": "prisma migrate deploy",
     "dev": "ts-node-dev --respawn --transpile-only --exit-child src/index.ts",
     "test": "jest",
-    "build": "tsc",
-    "seed": "ts-node prisma/seed.ts"
+    "build": "tsc"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",

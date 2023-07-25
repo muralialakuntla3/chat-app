@@ -27,7 +27,7 @@ model Channel {
   Message Message[]
 }
 
-// TODO: Add constrain (CHECK ?) on the columns to make sure channelName | toUsername is not null.
+// TODO: Add constrain (CHECK ?) to make sure on the columns (channelName/toUsername) is not null.
 model Message {
   id           String   @id @default(uuid())
   text         String

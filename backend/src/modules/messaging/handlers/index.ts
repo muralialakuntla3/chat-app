@@ -55,7 +55,7 @@ export const handleGetMessages: SocketEventHandler<
     const orderBy = {
       time: "desc",
     } as const;
-
+    
     if (!cursor) {
       messages = await db.message.findMany({
         where,

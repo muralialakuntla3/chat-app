@@ -92,14 +92,14 @@ export function SignUp() {
             {...register("username")}
             error={errors.email?.message}
             label="Username"
-            placeholder="coolusername"
+            placeholder="mantine"
             required
           />
           <TextInput
             {...register("email")}
             error={errors.email?.message}
             label="Email"
-            placeholder="you@example.com"
+            placeholder="you@mantine.dev"
             required
           />
           <PasswordInput

@@ -1,9 +1,9 @@
 import { expressjwt } from "express-jwt";
-import { config } from "../../src/config";
-import { SocketIOMiddleware } from "../../src/types/socketio";
-import { getAuthTokenPayload } from "../auth-utils";
-import { pick } from "../util";
-import publicRoutes from "../constants/public-routes";
+import { config } from "../../../src/config";
+import { SocketIOMiddleware } from "../../../src/types/socketio";
+import { getAuthTokenPayload } from "../../auth-utils";
+import { pick } from "../../util";
+import publicRoutes from "./public-routes";
 
 function authenticate() {
   return expressjwt({

@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 tsconfig.node.tsbuildinfo
-*.env.local
+*.env

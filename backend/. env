@@ -1,7 +1,0 @@
-DATABASE_URL="postgresql://postgres:postgres@localhost:5432/postgres?schema=public"
-JWT_SECRET=Odurxn3pec8mwtgwI/QJIt3hsttGpQjC3Tc3wz1K6N4=
-PORT=8080
-SENDGRID_API_KEY=sendgridapikey
-FRONTEND_URL=http://localhost:5173
-SENDGRID_FROM_EMAIL=yellaiah@gmail.com
-NODE_ENV=development

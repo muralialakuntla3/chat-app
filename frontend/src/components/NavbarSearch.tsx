@@ -236,7 +236,7 @@ export function NavbarSearch() {
             <Text size="xs" weight={500} color="dimmed">
               Channels
             </Text>
-            <Tooltip label="Create channel" withArrow position="right">
+            <Tooltip label="Create collection" withArrow position="right">
               <ActionIcon
                 variant="default"
                 onClick={() => openCreateChannel()}

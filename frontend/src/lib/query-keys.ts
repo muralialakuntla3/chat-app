@@ -12,10 +12,11 @@ const QueryKeys = {
     get_messages: "get_messages",
   },
   channels: {
-    create_channel: "create_channel",
-    delete_channel: "delete_channel",
+    create_channel: 'create_channel',
+    delete_channel: 'delete_channel',
     channels_list: "channels_list",
-  },
+
+  }
 } as const;
 
 export default QueryKeys;

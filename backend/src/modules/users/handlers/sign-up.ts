@@ -26,6 +26,11 @@ const signUpHandler: RequestHandler = async (req, res, next) => {
   } catch (error) {
     if (error instanceof Prisma.PrismaClientKnownRequestError) {
       if (error.code === "P2002") {
+        // "meta": {
+        //   "target": [
+        //     "username"
+        //   ]
+        // }
         const duplicateValues = z
           .string()
           .array()

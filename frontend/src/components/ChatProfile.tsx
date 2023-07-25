@@ -1,5 +1,14 @@
-import { Group, Avatar, Text, createStyles, Box, Stack } from "@mantine/core";
-import { IconUsers } from "@tabler/icons";
+import {
+  Group,
+  Avatar,
+  Text,
+  createStyles,
+  Box,
+  Stack,
+} from "@mantine/core";
+import {
+  IconUsers,
+} from "@tabler/icons";
 import { useLoaderData, useParams } from "react-router-dom";
 import { ChatPageParamsSchema } from "../lib/zod-schemas";
 import { ChannelWithUsers, User } from "../types";
