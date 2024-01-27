@@ -28,7 +28,7 @@ RealChat is a chat application build with Node.js and Typescript. It provides a 
 1. Clone the repo
 
    ```bash
-   git clone https://github.com/ramesh-km/messaging-app.git
+   git clone https://github.com/muralialakuntla3/chat-app.git
    ```
 
 2. Provide the environment variables
